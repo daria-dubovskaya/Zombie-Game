@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Bomb : MonoBehaviour
 {
     private AudioSource audioSource;
+    private GameController gameController;
     private Vector3 explosoinPosition;
     private Quaternion explosionRotation;
     private float explosionRadius = 7.0f;
@@ -15,6 +16,7 @@ public class Bomb : MonoBehaviour
     {
         text = GetComponentInChildren<Text>();
         audioSource = GetComponent<AudioSource>();
+        gameController = FindObjectOfType<GameController>();
     }
 
     private void Start()
@@ -38,7 +40,7 @@ public class Bomb : MonoBehaviour
 
     public void UseBomb(GameObject explosion)
     {
-        if (bombAmount > 0)
+        if (bombAmount > 0 && !gameController.IsGameOver)
         {
             audioSource.Play();
             Instantiate(explosion, explosoinPosition, explosionRotation);

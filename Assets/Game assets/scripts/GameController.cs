@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
     {
         UpdateGameInfo();
 
-        if (!gameOver)
+       /* if (!gameOver)
         {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
     }
 
     private IEnumerator SpawnWaves()

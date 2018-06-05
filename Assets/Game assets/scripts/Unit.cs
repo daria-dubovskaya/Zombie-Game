@@ -36,6 +36,15 @@ public class Unit : MonoBehaviour
             anim.Play("die", PlayMode.StopAll);            
     }
 
+    private void OnMouseDown()
+    {
+        if (!gameController.IsGameOver)
+        {
+            audioSourse.Play();
+            GetDamage();
+        }
+    }
+
     public virtual void GetDamage()
     {
         Vector3 smashingPosition = new Vector3(transform.position.x, transform.position.y + 0.8f, transform.position.z);
